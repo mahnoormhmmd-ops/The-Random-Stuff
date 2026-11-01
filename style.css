@@ -6,16 +6,40 @@
 body{
     background: #097a67;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 1rem;
-    font-family: sans-serif;
+    font-family:'Fredoka', sans-serif;
 }
+
+.sticker {
+    position: fixed;
+    top: 60%;
+    right: 2%;
+    transform: rotate(12deg);
+    width: 500px;
+    pointer-events: none;
+    transform: translateY(-50%) rotate(12deg);
+    
+    filter:
+        drop-shadow(3px 0 0 white)
+        drop-shadow(-3px 0 0 white)
+        drop-shadow(0 3px 0 white)
+        drop-shadow(0 -3px 0 white)
+        drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35));
+}
+@media (max-width: 1100px) {
+    .sticker {
+        display: none;
+    }
+}
+
 .container {
     background-color: aquamarine;
-    border-radius: 1rem;
-    box-shadow: 0 10px 30px rgb(0, 0, 0, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
     width: 100%;
     max-width: 600px;
     overflow: hidden;
@@ -30,26 +54,26 @@ body{
     padding: 2rem;
 }
 
-.start.screen {
+.screen.active {
     display: block;
 }
 
-/*START SCREEN*/
-
 #start-screen h1 {
-    color: #097a67;
-    margin-bottom: 20px;
-    border-color: #097a678f;
     font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #097a67;
+    border-color: #097a678f;
     text-align: center;
     margin-top: 20px;
+
 }
 
 #start-screen p {
     color: #0c0000;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     font-size: 1.1rem;
     text-align: center;
+    padding: 0 20px;
 }
 
 .quiz {
@@ -69,10 +93,9 @@ body{
     color: #666;
     font-size: 1rem;
     margin-bottom: 10px;
-
 }
-    
-.answer.container{
+
+.answers-container {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -80,13 +103,12 @@ body{
 }
 
 .start-btn {
-    background-color:#097a67;
+    background-color: #097a67;
     padding: 0.3rem;
     border-radius: 50%;
     padding: 10px;
-    border-color:solid #097a67;
+    border: 2px solid #046051;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.7);
-    cursor: pointer;
     font-size: 0.9rem;
     color: #e6fff0;
     font-weight: 600;
@@ -94,16 +116,42 @@ body{
     display: block;
     margin: 20px auto 0;
     margin-bottom: 20px;
-    
 }
 
 .start-btn:hover {
-    background-color: #065043;
+    background-color: #024d39;
+    color: #e6fff0;
+    cursor: pointer;
+}
+#intro h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    
+    text-shadow: 2px 2px 4px #000000;
+    color: #7a090f;
+    font-size: 4rem;
+    font-family: 'Brush Script MT', cursive;
+    font-weight: bold;
+    padding: 0 20px;
+    transition: translateY(-3px)
+
+
+}
+.hidden {
+    display:none;
+}
+#intro p {
+    text-align: center;
+    font-weight: 50;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.5rem;
+    padding: 10px;
+
 }
 
 .answer-btn {
     background-color: antiquewhite;
-    color: aquamarine;
+    color: rgb(0, 8, 5);
     border: 2px solid #0423248f;
     border-radius: 10px;
     padding: 1rem;
@@ -114,7 +162,8 @@ body{
 
 .answer-btn:hover {
     background-color: #097a67;
-    border-color: aquamarine;
+    color: aquamarine;
+    transform: translateY(-3px);
 }
 
 .answer-btn.correct {
@@ -134,7 +183,7 @@ body{
     background-color: #f8f0e5;
     border-radius: 5px;
     overflow: hidden;
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .progress {
@@ -142,8 +191,6 @@ body{
     background-color: #097a67;
     width: 0%;
     transition: width 0.3s ease;
-
-
 }
 
 
@@ -154,7 +201,6 @@ body{
     color: #097a67;
     margin-bottom: 30px;
 }
-
 
 .result-info {
     border-color: #f8f0e5;
@@ -171,7 +217,518 @@ body{
 
 #result-message {
     font-size: 1.5rem;
-    font-weight: 600;
-    color: #097a67
+    font-weight: bold;
+    color: #097a67;
+
 }
 
+button{
+    background-color:#097a67;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+}
+button:hover{
+    background-color: #097a67;
+
+}
+
+#food h1 {
+    font-family:'Fredoka', sans-serif; 
+    font-size: 4rem;
+    color: #024d39;
+    border: #000000;
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.7);
+}
+#food p {
+    font-family: "Fredoka", sans-serif;
+    padding: 15px;
+}
+
+#pick-btn, #click-btn {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9);
+    
+    
+}
+#pick-btn:hover{
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #024d39;
+}
+#click-btn:hover{
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #024d39;
+}
+
+#pick-screen h1 {
+    font-size: 4rem;
+    padding: 30px;
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.9);
+    color: #7a090f;
+
+}
+
+
+
+
+
+
+.pick-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.pick-card {
+    flex: 1;
+    background: white;
+    color: #042324;
+    padding: 0;
+    border-radius: 15px;
+    border: 8px solid #ffffff;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    font-family: inherit;
+    transition: transform 0.2s ease;
+    overflow: hidden;
+    
+
+}
+
+
+.pick-card:hover {
+    background: white;
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 14px 22px rgba(0, 0, 0, 0.5);
+    border-color: #046051;
+}
+
+.pick-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.pick-card span {
+    padding: 12px;
+    font-size: 1.2rem;
+    
+    font-weight: 600;
+}
+
+#back-btn {
+    background-color: transparent;
+    color: #024d39;
+    border: 2px solid #024d39;
+    border-radius: 30px;
+    padding: 10px 28px;
+    margin-top: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+#back-btn:hover {
+    background: #024d39;
+    color: white;
+    transition: all 0.3s ease;
+    transform: translateY(-3px);
+}
+
+
+/*NOODLES SCREEN*/
+.screen-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 8px 14px rgba(0, 0, 0, 0.35);
+
+}
+
+
+.stamp {
+    position: absolute;
+    width:150px;
+    padding: 7px;
+    height: 150px;
+    object-fit: cover;
+    border-color: #097a67;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.35);
+
+    /*the stamp border, the stickery sort*/
+    background: 
+        radial-gradient(circle at 6px 0, #097a67 4px, transparent 4.5px) top left / 12px 8px repeat-x,
+        radial-gradient(circle at 6px 8px, #097a67 4px, transparent 4.5px) bottom left / 12px 8px repeat-x,
+        radial-gradient(circle at 0 6px, #097a67 4px, transparent 4.5px) top left / 8px 12px repeat-y,
+        radial-gradient(circle at 8px 6px, #097a67 4px, transparent 4.5px) top right / 8px 12px repeat-y,
+        white;
+}
+
+.stamp-bl {
+    bottom: 10px; left: 10px; transform: rotate(6deg);}
+
+.stamp-br {
+    bottom: 10px; right: 10px; transform: rotate(-7deg);
+}
+
+#noodles-screen h1 {
+    font-size: 3rem;
+    color: #024d39;
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.71);
+    margin-bottom: 10px;
+}
+
+
+.screen-intro {
+    font-size: 1.1rem;
+    color: #0c0000;
+    padding: 0 10px;
+    line-height: 1.5;
+}
+
+.fact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.fact-card {
+    background:#042324;
+    border: 3px solid #097a67;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.fact-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 6px;
+}
+
+
+.fact-card h3 {
+    color: #7a090f;
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+}
+
+
+.fact-card p {
+    color: #e6fff0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.tip-box{
+    background-color: #e6fff0;
+    border: 2px dashed #097a67;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    color: #0c0000;
+    font-size: 1rem;
+    text-align: center;
+
+}
+
+
+.tip-box strong {
+    color: #7a090f;
+    font-size: 1.4rem
+}
+
+.back-to-pick {
+    background-color: transparent;
+    color: #024d39;
+    border: 2px solid #024d39;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-family: inherit;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+
+.back-to-pick:hover {
+    background-color: #024d39;
+    color: white;
+    transform: translateY(-4px);
+}
+
+
+
+#brownies-screen h1 {
+    font-size: 3rem;
+    text-shadow: 0 5px 6px rgba(0, 0, 0, 0.71);
+    margin-bottom: 10px;
+    color: #024d39;
+}
+
+
+
+.stamp-tl {
+    top: 10px; left: 10px; transform: rotate(-8deg);
+}
+
+.stamp-tr {
+    top: 10px; right: 10px; transform: rotate(7deg);
+}
+
+
+#noodles-screen, 
+#brownies-screen {
+    position: relative;
+}
+
+#noodles-screen {
+    padding-bottom: 190px;
+}
+
+
+#brownies-screen {
+    padding-top: 190px;
+}
+
+
+/*HAUNTED HOTEL APPLLICATION*/
+.application {
+    background: #f4ecd8;
+    border: 3px double #3b2a1a;
+    border-radius: 7px;
+    padding: 26px;
+    text-align: left;
+    font-family: 'Special Elite', monospace;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7);
+    color: #2a1d12;
+}
+
+.application h1 {
+    font-family: 'Special Elite', monospace;
+    font-size: 3rem;
+    text-align: center;
+    color: #7a090f;
+    letter-spacing: 2px;
+    text-shadow: 2px 3px 0 rgba(0, 0, 0, 0.23);
+}
+
+
+.app-tagline {
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+
+.application label {
+    display: block;
+    font-size: 0.95rem;
+    margin: 14px 0 5px;
+}
+
+
+.application input[type="text"],
+.application input[type="number"],
+.application select,
+.application textarea {
+    width: 100%;
+    color:#2a1d12;
+    border-radius: 4px;
+    border: 2px solid #3b2a1a;
+    background: #fffaf0;
+    font-size: 1rem;
+    padding: 10px;
+
+    font-family: inherit;
+}
+
+
+.application input:focus,
+.application select:focus,
+.application textarea:focus {
+    outline: none;
+    border-color: #7a090f;
+    box-shadow: 0 0 8px rgba(122, 9, 15, 0.5);
+}
+
+
+.app-options label,
+.app-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+}
+
+.app-submit {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #7a090f;
+    letter-spacing: 1.1px;
+    font-family: inherit;
+
+}
+
+.app-submit:hover {
+    background-color: #4d0509;
+
+}
+
+.app-result {
+    text-align: center;
+    padding: 20px 0;
+}
+
+
+.app-result h2 {
+    font-family: 'Creepster', cursive;
+    color: #7a090f;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+
+.application #click-back-btn {
+    display: block;
+    margin: 20px auto 0;
+}
+
+
+/*THEME BUTTON*/
+
+#theme-btn{
+    position: fixed;
+    top:20px;
+    right:20px;
+    z-index: 1000;
+    padding: 10px 18px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+
+
+}
+
+.dark-mode{
+    background: #111;
+    color:white;
+}
+
+.dark-mode .container{
+background:#1d1d1d;
+color: white;
+}
+.dark-mode .answer-btn{
+    background: #333;
+    color:white;
+    border-color:#666;
+}
+
+
+.dark-mode .answer-btn:hover{
+    background: #555;
+}
+.dark-mode #question-text{
+    color:white;
+}
+
+.dark-mode p{
+    color: #dddddd;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3 {
+    color: #7fffd4;
+}
+
+.dark-mode .progress-bar {
+    background: #444444;
+}
+
+.dark-mode #start-screen h1,
+.dark-mode #result-screen h1,
+.dark-mode #food h1,
+.dark-mode #pick-screen h1,
+.dark-mode #noodles-screen h1,
+.dark-mode #brownies-screen h1 {
+    color: #7fffd4;
+    text-shadow: none;
+}
+.dark-mode #start-screen p,
+.dark-mode .screen-intro,
+.dark-mode .result-info p,
+.dark-mode #result-message {
+    color: #dddddd;
+}
+.dark-mode .progress  {
+    background: #00c98d;
+}
+
+.dark-mode .fact-card{
+    background: #2b2b2b;
+    border-color: #00c98d;
+}
+
+
+.dark-mode .tip-box{
+    background: #252525;
+    color:white;
+    border-color: #00c98d;
+}
+
+.dark-mode .application{
+    background: #202020;
+    color: #eeeeee;
+    border-color: #555;
+}
+
+/*RESPONSIVE DESIGN*/
+@media (max-width: 500px){
+    .screen{
+        padding: 1rem;
+    }
+    #start-screen h1{
+        font-size: 2rem;
+    }
+    #question-text{
+        font-size: 1.2rem;
+    }
+    .answer-btn{
+        
+        padding: 12px;
+    }
+    button{
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+    .pick-row {
+        flex-direction: column;
+    }
+
+    .stamp {
+        display: none;
+    }
+
+    #brownies-screen {
+        padding-top: 1rem;
+        padding-bottom: 100px;
+    }
+
+    #noodles-screen {
+        padding-bottom: 1rem;
+    }
+} 

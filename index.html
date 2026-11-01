@@ -1,46 +1,219 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="view port" content="width=device-width, initial scale=1.0" />
-    <title>The Ultimate Website</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="start-screen" id="start-screen">
-        <h1>Quiz Time!</h1>
-        <p>I know you are very intelligent, but lets put that to a test!</p>
-        <button class="start-btn" id="start-btn">Start Testing!</button>
-      </div>
-
-      <div class="quiz screen" id="quiz">
-        <div class="quiz-header">
-          <h2 id="question-text">Question will be here?</h2>
-          <div class="question-info">
-            <p>
-              Question <span id="current-question">1</span> of <span>5</span>
-            </p>
-            <p>Score: <span id="score">0</span></p>
-          </div>
-        </div>
-        <div id="answers-container" class="answers-container">
-            <!--The answers will be inserted here from our javascript-->
-        </div>
-        <div class="progress-bar">
-            <div id="progress" class="progress"></div>
-        </div>
-      </div>
-      <div id="result-screen" class="screen">
-        <h1>Quiz Results</h1>
-        <div class="result-info">
-            <p>You scored <span id="final-score">0</span> out of <span id="maximum-score">5</span></p>
-            <div id="result-message">
-                <p>Good Job!</p>
-            </div>
-        </div>
-        <button id="restart-btn">Restart Quiz</button>
-      </div>
+    <head>
+        <meta charset="UTF-8"/><link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Special+Elite&display=swap" rel="stylesheet">
+    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Quizzie</title>
+        <link rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+    <button id="theme-btn">🌙 Dark Mode</button>
+    <div id="intro">
+        <h1 class="Title">Random Website!</h1>
+        <p>Okay, so I really had no clue what to make, so I decided to some random stuff. Some of it will increase your knowledge, while the rest of it will judge your knowledge, so lets hope you enjoy (And yeah, side note, if you like it, then I am very thankful. Also there are a lot of typing mistakes, so ignore them. And yeah, the ideas really came randomly. Notthing is put together, so I hope you make sense of it. I just like to babble a lot so thats not my fault either :D </p>
+        <img src="hmm-removebg-preview.png" alt="Sticker" class="sticker">
     </div>
-  </body>
+        <div class="container">
+            <div class="screen active" id="start-screen">
+                
+                <h1>Quiz Time!</h1>
+                <p>I know you are very smart, and probably the berdy sort of student, but lets put it to a test ;)</p>
+                <button class="start-btn" id="start-btn">Start Testing!</button>
+
+            </div>
+
+            <div class="screen" id="quiz-screen">
+                <div class="quiz-header">
+                    <h2 id="question-text">Questions will go here.</h2>
+                    <div class="question-info">
+                        <p>
+                            Question <span id="current-question">1</span> of <span id="total-questions">5</span>
+                        </p>
+                        <p>Score: <span id="score">0</span></p>
+                    </div>
+                </div>
+                <div id="answer-container" class="answers-container">
+                    <!--The answers will be put here via javascript-->
+                </div>
+                <div class="progress-bar">
+                    <div id="progress-bar" class="progress"></div>
+                </div>
+            </div>
+            <div id="result-screen" class="screen">
+                <h1>Quiz Results</h1>
+                <div class="result-info">
+                    <p>You scored <span id="final-score">0</span> out of <span id="maximum-score">5</span></p>
+                    <div id="result-message">
+                        <p>Good Job!</p>
+                    </div>
+                </div>
+                <button id="restart-btn">Restart Quiz</button>
+                <button id="next-btn">Move Forward</button>
+            </div>
+            <div id="food" class="screen">
+            <h1>Disadvantages of eating Yummy Food... :o</h1>
+            <p>Okay, so since you knwo how intelligent you are, I figured that I'd bless you with some knowledge of my own.
+                First of all, I know everyone knows what I mean when I refer to the term "Yummy Food", obviously it means junk food. Even though it feels irresistable to avoid these foods nowadays, maybe you might reconsider it if you know EXACTLY how dangerous they can be in the long-run. Lets dive into it.
+                Now, lets start by picking your favourite junk to see how exactly it is affecting your body. Most of the times, we are unaware of how the food we eat is affecting us until it is too late. It is gonna be a very happy journey :D.
+            </p>
+            <button id="pick-btn">Pick!</button>
+
+            <p>Not interested, Fine, you ahead and discover something more random!</p>
+            <button id="click-btn">Click Me!</button>
+             </div>
+        </div>
+        <div id="pick-screen" class="screen">
+            <h1>Pick Your Favourite!</h1>
+
+            <div class="pick-row">
+                <button class="pick-card" id="noodles-card">
+                    <img src="sesame-noodles-1-11.jpg" alt="Noodles">
+                    <span>Noodles</span>
+                </button>
+                <button class="pick-card" id="brownies-card">
+                    <img src="Fudgy-Cocoa-Brownies-13-1.jpg" alt="Brownies">
+                    <span>Brownies</span>
+                </button>
+            </div>
+            <button id="back-btn">Back :(</button>
+        </div>
+
+        <div id="click-screen" class="screen">
+            <div class="application">
+                <h1>Job Application at Charlie's.</h1>
+                <p class="app-tagline">Now Hiring! No prior experience required. If you are poor with no one to turn to, this is "life changing" for you!</p>
+
+                <form id="application-form">
+                    <label for="app-name">Full Name:</label>
+                    <input type="text" id="app-name" placeholder="As it appears on your headstone" required>
+
+
+                    <label for="app-age">Age: </label>
+                    <input type="number" id="app-age" min="1" max="999" required>
+
+                    <label for="app-job">Position Applying For: </label>
+                    <select id="app-job" required>
+                        <option value="">Select a position...</option>
+                        <option value="Night Porter">Night Porter</option>
+                        <option value="Keeper of Room 13">Keeper of Room 13</option>
+                        <option value="Cellar Attendant">Cellar Attendant</option>
+                        <option value="Cloth Washer">Cloth Washer</option>
+                    </select>
+
+                    <label>Do you believe in ghosts?</label>
+                    <div class="app-options">
+                        <label><input type="radio" name="ghosts" value="yes" required> Yes</label>
+                        <label><input type="radio" name="ghosts" value="no" required> No</label>
+                        <label><input type="radio" name="ghosts" value="they-don't-believe-in-me"> They don't believe in me...</label>
+
+
+                    </div>
+
+                    <label for="app-why">Why do you want to work here?</label>
+                    <textarea id="app-why" rows="3" placeholder="Be honest. We'll know if you aren't" required></textarea>
+
+
+                    <label class="app-check">
+                        <input type="checkbox" required>
+                        I understand that you might not be abble to work long, but you'll "adjust" soon enough.
+                    </label>
+
+                    <button type="submit" class="app-submit">Sign the contract</button>
+
+                </form>
+
+                <div id="application-result" class="app-result hidden">
+                    <h2 id="app-result-title">Congratulations! You are hired!</h2>
+
+                    <p id="app-result-text">You can start working from tomorrow at Toy Heaven Hotel from 8pm to 3am. I know the night shift might be difficult, cine we have a lott of customers coming around at that time, but you will get "used to it".</p>
+
+                </div>
+            <button id="click-back-btn">Back</button>
+        </div>
+    </div>
+
+        <div id="noodles-screen" class="screen">
+            <img src="hakka-noodles-platter-sq1.jpg" alt="" class="stamp stamp-bl">
+            <img src="images.jfif" alt="" class="stamp stamp-br">
+            <h1>Noodles</h1>
+            <p class="screen-intro">Quick, cheap, and delicious... but here's what's going on inside that tasty bowl.</p>
+            <div class="fact-grid">
+                <div class="fact-card">
+                    <span class="fact-icon">🧂</span>
+                    <h3> Loads of Salt</h3>
+                    <p>One packet can hold a big chunk of the salt you should have in a whole day, which is hard on your blood pressure.</p>
+                    
+                </div>
+                <div class="fact-card">
+                    <span class="fact-icon">🛢️</span>
+                    <h3>Hidden Fats</h3>
+                    <p>Many instant noodles are fried before they're packed, which adds extra calories and saturated fat.</p>
+
+            </div>
+                <div class="fact-card">
+                    <span class="fact-icon">❤️</span>
+                    <h3>Long-term Risks</h3>
+                    <p>Some studies link eating them very often leads to a higher risk of heart, reproductive and metabolic problems.</p>
+                </div>
+
+                <div class="fact-card">
+                    <span class="fact-icon">🍞</span>
+                    <h3>Not much Nutrition</h3>
+                    <p>Make from refined flour, so theres little fiber and protien. You feel hungry veryy soon so you eat again and again.</p>
+                </div>
+            </div>
+
+
+                <div class="tip-box">
+                    <strong>Not everything is bad news:</strong> add an egg and some veggies, and use only half the flavor packet. It makes a big difference! (Gotta eat anyway, so maybe like this.)
+
+                </div>
+            <button class="back-to-pick">Back</button>
+        </div>
+
+        <div id="brownies-screen" class="screen">
+            <img src="Dark-Chocolate-Brownies-shutterstock_112430981.jpg" alt="" class="stamp stamp-tl">
+
+            <img src="Fudgy-Cocoa-Brownies-13-1.jpg" alt="" class="stamp stamp-tr">
+            <h1>Brownies</h1>
+            <p class="screen-intro">Warm, gooey, and impossible to say no to... but here's what that harmless little cuboid is really doing.</p>
+            <div class="fact-grid">
+                <div class="fact-card">
+                    <span class="fact-icon">🍬</span>
+                    <h3>Sugary Overload</h3>
+                    <p>One brownie can hold more sugar than you need in a whole day, which is rough on your teeth and your energy levels.</p>
+                </div>
+                <div class="fact-card">
+                    <span class="fact-icon">🧈</span>
+                    <h3>Butter and fat</h3>
+                    <p>Rich brownies are made with lots of butter, so they're high in saturated fat and calories for a small piece.</p>
+
+                </div>
+                <div class="fact-card">
+                    <span class="fact-icon">📉</span>
+                    <h3>The sugar crash</h3>
+                    <p>Your blood sugar shoots up fast, then drops, which leaves you tired and craving another snack.</p>
+
+                </div>
+
+                <div class="fact-card">
+                    <span class="fact-icon">🦷</span>
+                    <h3>Hard on teeth</h3>
+                    <p>Sticky sugar clings to your teeth and feeds the bacteria that cause cavities.</p>
+
+                </div>
+            </div>
+            <div class="tip-box">
+                <strong>Not all bad news:</strong> go for a smaller square, share it, or pick dark chocolate.
+            </div>
+
+            
+
+            <button class="back-to-pick">Back</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>
